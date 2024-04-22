@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enregistrement du parrainage</title>
+    <link rel="stylesheet" type="text/css" href="../css/parrainage.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Enregistrement du parrainage</h1>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="idElecteur">Numéro de carte d'électeur:</label>
+                <input type="text" id="idElecteur" name="idElecteur">
+            </div>
+            <div class="form-group">
+                <label for="idCni">Numéro de carte d'identité nationale:</label>
+                <input type="text" id="idCni" name="idCni">
+            </div>
+            <button type="button" id="checkInfoButton">Vérifier les informations</button>
+        </form>
+        <div id="voterDetails" style="display: none;">
+            <h2>Informations de l'électeur:</h2>
+            <p id="fullName"></p>
+            <p id="dob"></p>
+            <p id="votingStation"></p>
+            <label for="authCode">Code d'authentification:</label>
+            <input type="text" id="authCode" name="authCode">
+            <button type="button" id="afficherCandidatsButton">Voir les candidats</button>
+        </div>
+        <div id="candidatesList" style="display: none;">
+            <h2>Liste des candidats:</h2>
+            <!-- La liste des candidats sera affichée ici -->
+            <label for="ChoixCandidat">Choisir un candidat:</label>
+            <select id="ChoixCandidat" name="ChoixCandidat">
+                <!-- Les options pour les candidats seront générées ici -->
+            </select>
+            <button type="button" id="sendOTPButton">Envoyer le code OTP</button>
+        </div>
+        <div id="otpVerification" style="display: none;">
+            <h2>Vérification du code OTP:</h2>
+            <label for="otp">Code OTP:</label>
+            <input type="text" id="otp" name="otp">
+            <button type="button" id="validerChoixButton">Valider le choix</button>
+        </div>
+        <div id="confirmationMessage" style="display: none;">
+            <h2>Confirmation:</h2>
+            <p>Votre choix a été enregistré avec succès !</p>
+        </div>
+    </div>
+    <script>
+        // Ajoutez votre code JavaScript ici
+    </script>
+</body>
+</html>

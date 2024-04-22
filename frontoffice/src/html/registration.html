@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inscription - Parrainage des candidatures des élections présidentielles au Sénégal</title>
+  <link rel="stylesheet" type="text/css" href="../css/login.css">
+</head>
+
+<body>
+  <h1 align="center" style="color: azure;">Parrainage des candidatures des élections présidentielles au Sénégal</h1>
+  <div class="container mt-5">
+    <h1>Création du profil du parrain - Étape 1</h1>
+    <form id="registrationFormStep1">
+      <div class="form-group">
+        <label for="voter-id"><h3>Numéro de carte d'électeur</h3></label>
+        <input type="text" class="form-control" id="voter-id" name="voter-id" placeholder="Numéro de carte d'électeur">
+      </div>
+      <div class="form-group">
+        <label for="national-id"><h3>Numéro de carte d'identité nationale</h3></label>
+        <input type="text" class="form-control" id="national-id" name="national-id" placeholder="Numéro de carte d'identité nationale">
+      </div>
+      <div class="form-group">
+        <label for="last-name"><h3>Nom de famille</h3></label>
+        <input type="text" class="form-control" id="last-name" name="last-name" placeholder="Nom de famille">
+      </div>
+      <div class="form-group">
+        <label for="voting-station"><h3>Numéro de bureau de vote</h3></label>
+        <input type="text" class="form-control" id="voting-station" name="voting-station" placeholder="Numéro de bureau de vote">
+      </div>
+      <button type="submit" class="btn btn-primary"><b>Suivant</b></button>
+    </form>
+  </div>
+
+  <!-- Étape 2: Demander le numéro de téléphone et l'adresse e-mail après la validation de la première étape -->
+  <div class="container mt-5" id="step2" style="display: none;">
+    <h1>Création du profil du parrain - Étape 2</h1>
+    <form id="registrationFormStep2">
+      <div class="form-group">
+        <label for="phone"><h3>Numéro de téléphone</h3></label>
+        <input type="text" class="form-control" id="phone" name="phone" placeholder="Numéro de téléphone">
+      </div>
+      <div class="form-group">
+        <label for="email"><h3>Adresse e-mail</h3></label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Adresse e-mail">
+      </div>
+      <button type="submit" class="btn btn-primary"><b>S'inscrire</b></button>
+    </form>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="../js/registration.js" type="module"></script>
+
+  <script>
+    // Script pour gérer la transition entre les étapes du formulaire d'inscription
+    $(document).ready(function() {
+      $('#registrationFormStep1').submit(function(e) {
+        e.preventDefault();
+        // Vérifier la cohérence et la complétude des informations ici
+        // Si les informations sont valides, passer à l'étape 2
+        $('#step2').show();
+        $(this).hide();
+      });
+    });
+  </script>
+</body>
+
+</html>

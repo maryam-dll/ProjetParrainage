@@ -15,20 +15,20 @@
     <h1>Création du profil du parrain - Étape 1</h1>
     <form id="registrationFormStep1">
       <div class="form-group">
-        <label for="voter-id"><h3>Numéro de carte d'électeur</h3></label>
-        <input type="text" class="form-control" id="voter-id" name="voter-id" placeholder="Numéro de carte d'électeur">
+        <label for="idElecteur"><h3>Numéro de carte d'électeur</h3></label>
+        <input type="text" class="form-control" id="idElecteur" name="idElecteur" placeholder="Numéro de carte d'électeur">
       </div>
       <div class="form-group">
-        <label for="national-id"><h3>Numéro de carte d'identité nationale</h3></label>
-        <input type="text" class="form-control" id="national-id" name="national-id" placeholder="Numéro de carte d'identité nationale">
+        <label for="idCni"><h3>Numéro de carte d'identité nationale</h3></label>
+        <input type="text" class="form-control" id="idCni" name="idCni" placeholder="Numéro de carte d'identité nationale">
       </div>
       <div class="form-group">
-        <label for="last-name"><h3>Nom de famille</h3></label>
-        <input type="text" class="form-control" id="last-name" name="last-name" placeholder="Nom de famille">
+        <label for="nomDeFamille"><h3>Nom de famille</h3></label>
+        <input type="text" class="form-control" id="nomDeFamille" name="nomDeFamille" placeholder="Nom de famille">
       </div>
       <div class="form-group">
-        <label for="voting-station"><h3>Numéro de bureau de vote</h3></label>
-        <input type="text" class="form-control" id="voting-station" name="voting-station" placeholder="Numéro de bureau de vote">
+        <label for="bureauDeVote"><h3>Numéro de bureau de vote</h3></label>
+        <input type="text" class="form-control" id="bureauDeVote" name="bureauDeVote" placeholder="Numéro de bureau de vote">
       </div>
       <button type="submit" class="btn btn-primary"><b>Suivant</b></button>
     </form>
@@ -73,10 +73,10 @@
         // Vérifier si le numéro de téléphone et l'adresse e-mail sont valides
         if (phone !== "" && email !== "") {
           // Récupérer les données saisies dans les champs de registration.html
-          var voterId = $('#voter-id').val();
-          var nationalId = $('#national-id').val();
-          var lastName = $('#last-name').val();
-          var votingStation = $('#voting-station').val();
+          var voterId = $('#idElecteur').val();
+          var nationalId = $('#idCni').val();
+          var lastName = $('#nomDeFamille').val();
+          var votingStation = $('#bureauDeVote').val();
           // Redirection vers parrainage.html après la validation de la deuxième étape
           window.location.href = 'parrainage.html';
         } else {

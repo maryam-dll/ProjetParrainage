@@ -2,10 +2,10 @@ $(document).ready(function() {
   $('#registrationFormStep1').submit(function(e) {
     e.preventDefault();
     // Récupérer les valeurs des champs du formulaire
-    var voterId = $('#voter-id').val();
-    var nationalId = $('#national-id').val();
-    var lastName = $('#last-name').val();
-    var votingStation = $('#voting-station').val();
+    var voterId = $('#idElecteur').val();
+    var nationalId = $('#idCni').val();
+    var lastName = $('#nomDeFamille').val();
+    var votingStation = $('#bureauDeVote').val();
 
     // Vérifier si tous les champs sont remplis
     if (voterId && nationalId && lastName && votingStation) {
@@ -43,31 +43,31 @@ $('#registrationFormStep2').submit(function(e) {
 
       // Envoyer le code OTP par SMS
       $.ajax({
-          url: 'votre-url-d-envoi-de-SMS', // URL de l'endpoint sur le serveur pour l'envoi de SMS
+          url: '', // URL de l'endpoint sur le serveur pour l'envoi de SMS
           method: 'POST',
           data: { phone: phone, OTP: OTP },
           success: function(response) {
               // Afficher un message de succès à l'utilisateur
-              alert('Un code d\'authentification a été envoyé à votre téléphone.');
+              alert("Un code d'authentification a été envoyé à votre téléphone.");
           },
           error: function() {
               // En cas d'erreur lors de l'envoi de SMS, afficher un message d'erreur
-              alert('Une erreur s\'est produite lors de l\'envoi du code d\'authentification par SMS. Veuillez réessayer.');
+              alert("Une erreur s'est produite lors de l'envoi du code d'authentification par SMS. Veuillez réessayer.");
           }
       });
 
       // Envoyer le code OTP par e-mail
       $.ajax({
-          url: 'votre-url-d-envoi-d-email', // URL de l'endpoint sur le serveur pour l'envoi d'e-mail
+          url: '', // URL de l'endpoint sur le serveur pour l'envoi d'e-mail
           method: 'POST',
           data: { email: email, OTP: OTP },
           success: function(response) {
               // Afficher un message de succès à l'utilisateur
-              alert('Un code d\'authentification a été envoyé à votre adresse e-mail.');
+              alert("Un code d'authentification a été envoyé à votre adresse e-mail.");
           },
           error: function() {
               // En cas d'erreur lors de l'envoi d'e-mail, afficher un message d'erreur
-              alert('Une erreur s\'est produite lors de l\'envoi du code d\'authentification par e-mail. Veuillez réessayer.');
+              alert("Une erreur s'est produite lors de l'envoi du code d'authentification par e-mail. Veuillez réessayer.");
           }
       });
   } else {

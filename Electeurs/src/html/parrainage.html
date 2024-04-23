@@ -50,7 +50,40 @@
         </div>
     </div>
     <script>
-        // Ajoutez votre code JavaScript ici
-    </script>
+       $(document).ready(function() {
+  // Récupérer les paramètres d'URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const voterId = urlParams.get('voterId');
+  const nationalId = urlParams.get('nationalId');
+  const lastName = urlParams.get('lastName');
+  const votingStation = urlParams.get('votingStation');
+  const phone = urlParams.get('phone');
+  const email = urlParams.get('email');
+
+  // Afficher les données récupérées dans les champs de saisie de parrainage.html
+  $('#idElecteur').val(voterId);
+  $('#idCni').val(nationalId);
+
+  // Vérifier si les données saisies correspondent aux données récupérées
+  $('#checkInfoButton').click(function() {
+    const enteredVoterId = $('#idElecteur').val();
+    const enteredNationalId = $('#idCni').val();
+    const enteredLastName = $('#nomDeFamille').val(); // Ajout pour le nom de famille
+    const enteredVotingStation = $('#bureauDeVote').val(); // Ajout pour le bureau de vote
+
+    // Vérifier si les données saisies correspondent aux données récupérées
+    if (enteredVoterId === voterId && enteredNationalId === nationalId && enteredLastName === lastName && enteredVotingStation === votingStation) {
+      // Redirection vers detailsElecteur.html
+      window.location.href = 'detailsElecteur.html';
+    } else {
+      // Les informations saisies sont incorrectes
+      alert("Les informations saisies sont incorrectes.");
+    }
+  });
+});
+
+      </script>
+      
+    
 </body>
 </html>

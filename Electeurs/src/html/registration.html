@@ -72,6 +72,11 @@
         var email = $('#email').val();
         // Vérifier si le numéro de téléphone et l'adresse e-mail sont valides
         if (phone !== "" && email !== "") {
+          // Récupérer les données saisies dans les champs de registration.html
+          var voterId = $('#voter-id').val();
+          var nationalId = $('#national-id').val();
+          var lastName = $('#last-name').val();
+          var votingStation = $('#voting-station').val();
           // Redirection vers parrainage.html après la validation de la deuxième étape
           window.location.href = 'parrainage.html';
         } else {

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inscription - Parrainage des candidatures des élections présidentielles au Sénégal</title>
-  <link rel="stylesheet" type="text/css" href="../css/login.css">
+  <link rel="stylesheet" type="text/css" href="../css/registration.css">
 </head>
 
 <body>
@@ -83,6 +83,20 @@
           alert("Veuillez remplir tous les champs");
         }
       });
+      // Vérifier si les données saisies correspondent aux données récupérées
+  $('#checkInfoButton').click(function() {
+      const enteredVoterId = $('#idElecteur').val();
+      const enteredNationalId = $('#idCni').val();
+      // Vérifier si les données saisies correspondent aux données récupérées
+      if (enteredVoterId === voterId && enteredNationalId === nationalId) {
+          // Redirection vers detailsElecteur.html avec les paramètres d'URL contenant les données de l'électeur
+          const redirectUrl = `detailsElecteur.html?voterId=${enteredVoterId}&nationalId=${enteredNationalId}&lastName=${lastName}&votingStation=${votingStation}&phone=${phone}&email=${email}`;
+          window.location.href = redirectUrl;
+      } else {
+          // Les informations saisies sont incorrectes
+          alert("Les informations saisies sont incorrectes.");
+      }
+  });
     });
 </script>
 </body>

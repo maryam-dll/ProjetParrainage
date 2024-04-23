@@ -1,22 +1,29 @@
-// Fonction pour récupérer les détails de l'électeur et afficher le formulaire d'authentification
-function getDetailsElecteur() {
-    // Effectuer une requête AJAX vers le backend pour récupérer les détails de l'électeur
-    // Une fois les détails récupérés, les afficher dans la div voterDetails
+// Fonction pour extraire les paramètres d'URL et afficher les détails de l'électeur
+function afficherDetailsElecteur() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const voterId = urlParams.get('voterId');
+    const nationalId = urlParams.get('nationalId');
+    const lastName = urlParams.get('lastName');
+    const votingStation = urlParams.get('votingStation');
+    const phone = urlParams.get('phone');
+    const email = urlParams.get('email');
+
+    // Afficher les détails de l'électeur dans la section #detailsElecteur
+    document.getElementById('detailsElecteur').innerHTML = `
+        <h2>Informations de l'électeur:</h2>
+        <p><strong>Numéro de carte d'électeur:</strong> ${voterId}</p>
+        <p><strong>Numéro de carte d'identité nationale:</strong> ${nationalId}</p>
+        <p><strong>Nom de famille:</strong> ${lastName}</p>
+        <p><strong>Numéro de bureau de vote:</strong> ${votingStation}</p>
+        <p><strong>Numéro de téléphone:</strong> ${phone}</p>
+        <p><strong>Adresse e-mail:</strong> ${email}</p>
+    `;
 }
 
-// Fonction pour afficher la page des candidats
-function afficherPageCandidats() {
-    // Récupérer le code d'authentification saisi par l'utilisateur
-    var authCode = document.getElementById('authCode').value;
+// Redirection vers la page des candidats lors du clic sur le bouton "Voir les candidats"
+document.getElementById("afficherCandidatsButton").addEventListener("click", function() {
+    window.location.href = 'listeCandidats.html';
+});
 
-    // Envoyer le code d'authentification au serveur pour validation
-    // Effectuer une requête AJAX vers le backend pour vérifier le code d'authentification
-    // Si le code est valide, rediriger l'utilisateur vers la page des candidats
-    // Sinon, afficher un message d'erreur ou une notification à l'utilisateur
-}
-
-// Écouteur d'événement pour le bouton "Voir les candidats"
-document.getElementById('afficherCandidatsButton').addEventListener('click', afficherPageCandidats);
-
-// Appel à la fonction pour récupérer les détails de l'électeur au chargement de la page
-document.addEventListener('DOMContentLoaded', getDetailsElecteur);
+// Appel à la fonction pour extraire les paramètres d'URL et afficher les détails de l'électeur au chargement de la page
+document.addEventListener('DOMContentLoaded', afficherDetailsElecteur);

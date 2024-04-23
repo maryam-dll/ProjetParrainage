@@ -61,11 +61,25 @@
         e.preventDefault();
         // Vérifier la cohérence et la complétude des informations ici
         // Si les informations sont valides, passer à l'étape 2
-        $('#step2').show();
-        $(this).hide();
+        $('#step2').show(); // Affiche l'étape 2
+        $(this).hide(); // Masque l'étape 1
+      });
+
+      $('#registrationFormStep2').submit(function(e) {
+        e.preventDefault();
+        // Vérifier la cohérence et la complétude des informations ici
+        var phone = $('#phone').val();
+        var email = $('#email').val();
+        // Vérifier si le numéro de téléphone et l'adresse e-mail sont valides
+        if (phone !== "" && email !== "") {
+          // Redirection vers parrainage.html après la validation de la deuxième étape
+          window.location.href = 'parrainage.html';
+        } else {
+          alert("Veuillez remplir tous les champs");
+        }
       });
     });
-  </script>
+</script>
 </body>
 
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enregistrement du parrainage</title>
-    <link rel="stylesheet" type="text/css" href="../css/parrainage.css">
+    <link rel="stylesheet" type="text/css" href="../src/index.css">
 </head>
 <body>
     <div class="container">
@@ -74,7 +74,8 @@
     // Vérifier si les données saisies correspondent aux données récupérées
     if (enteredVoterId === voterId && enteredNationalId === nationalId && enteredLastName === lastName && enteredVotingStation === votingStation) {
       // Redirection vers detailsElecteur.html
-      window.location.href = 'detailsElecteur.html';
+      const redirectUrl = `detailsElecteur.html?voterId=${enteredVoterId}&nationalId=${enteredNationalId}&lastName=${lastName}&votingStation=${votingStation}&phone=${phone}&email=${email}`;
+          window.location.href = redirectUrl;
     } else {
       // Les informations saisies sont incorrectes
       alert("Les informations saisies sont incorrectes.");
